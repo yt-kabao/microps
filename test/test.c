@@ -33,7 +33,7 @@ setup(void)
         errorf("net_init() failure");
         return -1;
     }
-    if (net_run() == -1) {
+    if (net_run() == -1) { 
         errorf("net_run() failure");
         return -1;
     }
@@ -54,6 +54,11 @@ cleanup(void)
 static int
 app_main(void)
 {
+    debugf("press Ctrl+C to Terminate");
+    while(!terminate){
+        sleep(1);
+    }
+    debugf("terminate");
     return 0;
 }
 
