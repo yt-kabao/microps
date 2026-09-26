@@ -38,15 +38,14 @@ setup(void)
         return -1;
     }
     dev = loopback_init();
-    if(!dev){
+    if (!dev) {
         errorf("loopback_init() failure");
         return -1;
     }
-    if (net_run() == -1) { 
+    if (net_run() == -1) {
         errorf("net_run() failure");
         return -1;
     }
-
     return 0;
 }
 
@@ -64,9 +63,9 @@ cleanup(void)
 static int
 app_main(void)
 {
-    debugf("press Ctrl+C to Terminate");
-    while(!terminate){
-        if(net_device_output(dev, NET_PROTOCOL_TYPE_IP, test_data, sizeof(test_data), NULL) == -1){
+    debugf("press Ctrl+C to terminate");
+    while (!terminate) {
+        if (net_device_output(dev, NET_PROTOCOL_TYPE_IP, test_data, sizeof(test_data), NULL) == -1) {
             errorf("net_device_output() failure");
             break;
         }
